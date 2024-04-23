@@ -1,0 +1,24 @@
+question3
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int val;
+    struct Node *next;
+};
+
+struct Node* reverseList(struct Node* head) {
+    struct Node* previous = NULL;
+    struct Node* current_node = head;
+    struct Node* next_node = NULL;
+    
+    while (current_node != NULL) {
+        next_node = current_node->next;
+        current_node->next = previous;
+        previous = current_node;
+        current_node = next_node;
+    }
+    
+    return previous;
+}
